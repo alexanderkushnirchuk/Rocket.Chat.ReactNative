@@ -1,6 +1,13 @@
 defaults: &defaults
   working_directory: ~/repo
 
+macos: &macos
+  macos:
+    xcode: "11.2.1"
+
+bash-env: &bash-env
+  BASH_ENV: "~/.nvm/nvm.sh"
+
 install-npm-modules: &install-npm-modules
   name: Install NPM modules
   command: yarn
@@ -59,12 +66,12 @@ jobs:
 
       - save_cache: *save-npm-cache-linux
 
+  # E2E
   e2e-build:
-    macos:
-      xcode: "11.2.1"
+    <<: *macos
 
     environment:
-      BASH_ENV: "~/.nvm/nvm.sh"
+      <<: *bash-env
 
     steps:
       - checkout
@@ -108,11 +115,10 @@ jobs:
       - save_cache: *save-npm-cache-mac
 
   e2e-test:
-    macos:
-      xcode: "11.2.1"
+    <<: *macos
 
     environment:
-      BASH_ENV: "~/.nvm/nvm.sh"
+      <<: *bash-env
 
     steps:
       - checkout
@@ -153,6 +159,7 @@ jobs:
 
       - save_cache: *save-npm-cache-mac
 
+  # Android builds
   android-build:
     <<: *defaults
     docker:
@@ -165,7 +172,7 @@ jobs:
       JAVA_OPTS: '-Xms512m -Xmx2g'
       GRADLE_OPTS: '-Xmx3g -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx2g -XX:+HeapDumpOnOutOfMemoryError"'
       TERM: dumb
-      BASH_ENV: "~/.nvm/nvm.sh"
+      <<: *bash-env
 
     steps:
       - checkout
@@ -259,12 +266,12 @@ jobs:
           paths:
             - ~/.gradle
 
+  # iOS builds
   ios-build:
-    macos:
-      xcode: "11.2.1"
+    <<: *macos
 
     environment:
-      BASH_ENV: "~/.nvm/nvm.sh"
+      <<: *bash-env
 
     steps:
       - checkout
@@ -347,8 +354,7 @@ jobs:
             - ios/fastlane/report.xml
 
   ios-testflight:
-    macos:
-      xcode: "11.2.1"
+    <<: *macos
 
     steps:
       - checkout
