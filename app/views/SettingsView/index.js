@@ -128,8 +128,8 @@ class SettingsView extends React.Component {
 	}
 
 	sendEmail = async() => {
-		const subject = encodeURI('React Native App Support');
-		const email = encodeURI('support@rocket.chat');
+		const subject = encodeURI('UIA Chat Support');
+		const email = encodeURI('info@novikov.ua');
 		const description = encodeURI(`
 			version: ${ getReadableVersion }
 			device: ${ getDeviceModel }
@@ -137,7 +137,7 @@ class SettingsView extends React.Component {
 		try {
 			await Linking.openURL(`mailto:${ email }?subject=${ subject }&body=${ description }`);
 		} catch (e) {
-			showErrorAlert(I18n.t('error-email-send-failed', { message: 'support@rocket.chat' }));
+			showErrorAlert(I18n.t('error-email-send-failed', { message: 'info@novikov.ua' }));
 		}
 	}
 
@@ -231,24 +231,6 @@ class SettingsView extends React.Component {
 					/>
 					<Separator theme={theme} />
 					<ListItem
-						title={I18n.t('Review_this_app')}
-						showActionIndicator
-						onPress={onReviewPress}
-						testID='settings-view-review-app'
-						right={this.renderDisclosure}
-						theme={theme}
-					/>
-					<Separator theme={theme} />
-					<ListItem
-						title={I18n.t('Share_this_app')}
-						showActionIndicator
-						onPress={this.shareApp}
-						testID='settings-view-share-app'
-						right={this.renderDisclosure}
-						theme={theme}
-					/>
-					<Separator theme={theme} />
-					<ListItem
 						title={I18n.t('Default_browser')}
 						showActionIndicator
 						onPress={() => this.navigateToScreen('DefaultBrowserView')}
@@ -265,27 +247,9 @@ class SettingsView extends React.Component {
 						right={this.renderDisclosure}
 						theme={theme}
 					/>
-					<Separator theme={theme} />
-					<ListItem
-						title={I18n.t('Screen_lock')}
-						showActionIndicator
-						onPress={() => this.navigateToScreen('ScreenLockConfigView')}
-						right={this.renderDisclosure}
-						theme={theme}
-					/>
 
 					<SectionSeparator theme={theme} />
 
-					<ListItem
-						title={I18n.t('License')}
-						onPress={this.onPressLicense}
-						showActionIndicator
-						testID='settings-view-license'
-						right={this.renderDisclosure}
-						theme={theme}
-					/>
-
-					<Separator theme={theme} />
 					<ListItem
 						title={I18n.t('Version_no', { version: getReadableVersion })}
 						onPress={this.copyAppVersion}
@@ -304,19 +268,6 @@ class SettingsView extends React.Component {
 
 					<SectionSeparator theme={theme} />
 
-					<ListItem
-						title={I18n.t('Send_crash_report')}
-						testID='settings-view-crash-report'
-						right={() => this.renderCrashReportSwitch()}
-						theme={theme}
-					/>
-					<Separator theme={theme} />
-					<ItemInfo
-						info={I18n.t('Crash_report_disclaimer')}
-						theme={theme}
-					/>
-
-					<Separator theme={theme} />
 					<ListItem
 						title={I18n.t('Clear_cache')}
 						testID='settings-clear-cache'
