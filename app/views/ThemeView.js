@@ -33,7 +33,7 @@ const THEMES = [
 		value: 'light',
 		group: THEME_GROUP
 	}, {
-		label: I18n.t('Dark'),
+		label: I18n.t('Dark_Theme'),
 		value: 'dark',
 		group: THEME_GROUP
 	}, {
