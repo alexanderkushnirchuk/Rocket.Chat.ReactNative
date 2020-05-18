@@ -149,7 +149,6 @@ class ShareListView extends React.Component {
 		}, 500);
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
 		const { server } = this.props;
 		if (nextProps.server !== server) {
 			this.getSubscriptions(nextProps.server);
@@ -406,7 +405,7 @@ class ShareListView extends React.Component {
 				renderItem={this.renderItem}
 				getItemLayout={getItemLayout}
 				ItemSeparatorComponent={this.renderSeparator}
-				ListHeaderComponent={this.renderHeader}
+				//ListHeaderComponent={this.renderHeader}
 				ListFooterComponent={!searching && this.renderBorderBottom}
 				ListHeaderComponentStyle={!searching ? { ...styles.borderBottom, borderColor: themes[theme].separatorColor } : {}}
 				ListEmptyComponent={searching && searchText ? this.renderEmptyComponent : null}
