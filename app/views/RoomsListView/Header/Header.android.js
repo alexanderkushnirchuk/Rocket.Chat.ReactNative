@@ -52,7 +52,7 @@ const Header = React.memo(({
 				<TextInput
 					autoFocus
 					style={[styles.server, isLight && titleColorStyle]}
-					placeholder='Search'
+					placeholder={I18n.t('Search_Modal')}
 					onChangeText={onSearchChangeText}
 					theme={theme}
 				/>
@@ -61,25 +61,7 @@ const Header = React.memo(({
 	}
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity
-				onPress={onPress}
-				testID='rooms-list-header-server-dropdown-button'
-				disabled={connecting || isFetching}
-			>
-				{connecting ? <Text style={[styles.updating, titleColorStyle]}>{I18n.t('Connecting')}</Text> : null}
-				{isFetching ? <Text style={[styles.updating, titleColorStyle]}>{I18n.t('Updating')}</Text> : null}
-				<View style={styles.button}>
-					<Text style={[styles.server, isFetching && styles.serverSmall, titleColorStyle]} numberOfLines={1}>{serverName}</Text>
-					<Image
-						style={[
-							styles.disclosure,
-							showServerDropdown && styles.upsideDown,
-							{ tintColor: themes[theme].headerTitleColor }
-						]}
-						source={{ uri: 'disclosure_indicator_server' }}
-					/>
-				</View>
-			</TouchableOpacity>
+			<Text style={[styles.server, isFetching && styles.serverSmall, titleColorStyle]}>{serverName}</Text>
 		</View>
 	);
 });
@@ -96,7 +78,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-	serverName: 'Rocket.Chat'
+	serverName: 'UIA.Chat'
 };
 
 export default Header;

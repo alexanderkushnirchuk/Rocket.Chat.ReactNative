@@ -77,7 +77,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-	serverName: 'Rocket.Chat'
+	serverName: 'UIA.Chat'
 };
 
 HeaderTitle.propTypes = {
