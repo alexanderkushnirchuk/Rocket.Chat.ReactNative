@@ -1,5 +1,6 @@
 {
   "name": "RocketChatRN",
   "share": "ShareRocketChatRN",
-  "displayName": "RocketChatRN"
+  "displayName": "UIA Chat",
+  "server": "https://rocket.pogonyalo.com:2053"
 }
