@@ -37,7 +37,7 @@ class CreateChannelView extends React.Component {
 				showSubmit
 					? (
 						<CustomHeaderButtons>
-							<Item title={I18n.t('Create')} onPress={submit} testID='create-discussion-submit' />
+							<Item title={I18n.t('Create_Discussion_Button')} onPress={submit} testID='create-discussion-submit' />
 						</CustomHeaderButtons>
 					)
 					: null
