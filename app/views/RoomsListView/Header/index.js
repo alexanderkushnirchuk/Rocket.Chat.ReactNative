@@ -75,7 +75,7 @@ class RoomsListHeaderView extends PureComponent {
 			<Header
 				theme={theme}
 				serverName={serverName}
-				showServerDropdown={showServerDropdown}
+				//showServerDropdown={showServerDropdown}
 				showSearchHeader={showSearchHeader}
 				connecting={connecting}
 				isFetching={isFetching}
