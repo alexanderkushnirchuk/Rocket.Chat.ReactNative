@@ -989,9 +989,10 @@ const RocketChat = {
 		// RC 0.55.0
 		return this.post('users.resetAvatar', { userId });
 	},
-	setAvatarFromService({ data, contentType = '', service = null }) {
+	setAvatarFromService({ data, contentType = 'image/jpeg', service = null }) {
 		// RC 0.51.0
-		return this.methodCall('setAvatarFromService', data, contentType, service);
+        const user_id = this.sdk.currentLogin.userId;
+		return this.methodCall('setAvatarFromService', data, contentType, service, user_id);
 	},
 	async getAllowCrashReport() {
 		const allowCrashReport = await AsyncStorage.getItem(CRASH_REPORT_KEY);
