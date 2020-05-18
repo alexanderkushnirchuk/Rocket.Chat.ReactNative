@@ -79,7 +79,7 @@ class RoomsListHeaderView extends PureComponent {
 				showSearchHeader={showSearchHeader}
 				connecting={connecting}
 				isFetching={isFetching}
-				onPress={this.onPress}
+				//onPress={this.onPress}
 				onSearchChangeText={this.onSearchChangeText}
 			/>
 		);
