@@ -182,7 +182,7 @@ const handleLogout = function* handleLogout({ forcedByServer }) {
 							return yield put(selectServerRequest(newServer));
 						}
 					}
-				}
+				}*/
 				// if there's no servers, go outside
                 yield put(serverRequest(appConfig.server));
 			}
