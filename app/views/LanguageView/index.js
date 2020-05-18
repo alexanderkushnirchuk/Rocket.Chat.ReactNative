@@ -22,16 +22,16 @@ import { getUserSelector } from '../../selectors/login';
 import database from '../../lib/database';
 
 const LANGUAGES = [
-	{
+	/*{
 		label: '简体中文',
 		value: 'zh-CN'
 	}, {
 		label: 'Deutsch',
 		value: 'de'
-	}, {
+	}, */{
 		label: 'English',
 		value: 'en'
-	}, {
+	}, /*{
 		label: 'Español (ES)',
 		value: 'es-ES'
 	}, {
@@ -43,10 +43,10 @@ const LANGUAGES = [
 	}, {
 		label: 'Português (PT)',
 		value: 'pt-PT'
-	}, {
+	},*/ {
 		label: 'Russian',
 		value: 'ru'
-	}, {
+	}, /*{
 		label: 'Nederlands',
 		value: 'nl'
 	}, {
@@ -55,7 +55,11 @@ const LANGUAGES = [
 	}, {
 		label: '日本語',
 		value: 'ja'
-	}
+	}*/
+    {
+        label: 'Ukrainian',
+        value: 'ua'
+    }
 ];
 
 class LanguageView extends React.Component {
