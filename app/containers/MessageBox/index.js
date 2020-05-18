@@ -46,6 +46,7 @@ import CommandsPreview from './CommandsPreview';
 import { Review } from '../../utils/review';
 import { getUserSelector } from '../../selectors/login';
 import Navigation from '../../lib/Navigation';
+import sendMessage, { sendMessageCall } from '../../lib/methods/sendMessage';
 
 const imagePickerConfig = {
 	cropping: true,
@@ -67,6 +68,8 @@ const FILE_VIDEO_INDEX = 2;
 const FILE_LIBRARY_INDEX = 3;
 const FILE_DOCUMENT_INDEX = 4;
 const CREATE_DISCUSSION_INDEX = 5;
+const POLL_INDEX = 6;
+const FINAID_INDEX = 7;
 
 class MessageBox extends Component {
 	static propTypes = {
@@ -121,7 +124,9 @@ class MessageBox extends Component {
 			I18n.t('Take_a_video'),
 			I18n.t('Choose_from_library'),
 			I18n.t('Choose_file'),
-			I18n.t('Create_Discussion')
+			I18n.t('Create_Discussion'),
+            I18n.t('Create_Poll'),
+            I18n.t('Get_FinAid')
 		];
 		const libPickerLabels = {
 			cropperChooseText: I18n.t('Choose'),
@@ -594,6 +599,16 @@ class MessageBox extends Component {
 	createDiscussion = () => {
 		Navigation.navigate('CreateDiscussionView', { channel: this.room });
 	}
+    
+    finAid = () => {
+        this.text = '/finaid';
+        this.submit();
+    }
+    
+    createPoll = () => {
+        this.text = '/poll';
+        this.submit();
+    }
 
 	showUploadModal = (file) => {
 		this.setState({ file: { ...file, isVisible: true } });
@@ -625,6 +640,12 @@ class MessageBox extends Component {
 			case CREATE_DISCUSSION_INDEX:
 				this.createDiscussion();
 				break;
+            case POLL_INDEX:
+                this.createPoll();
+                break;
+            case FINAID_INDEX:
+                this.finAid();
+                break;
 			default:
 				break;
 		}
