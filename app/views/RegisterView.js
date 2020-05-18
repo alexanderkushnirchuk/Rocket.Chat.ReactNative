@@ -202,8 +202,8 @@ class RegisterView extends React.Component {
 					<TextInput
 						inputRef={(e) => { this[key] = e; }}
 						key={key}
-						label={key}
-						placeholder={key}
+						label={I18n.t(`${ key }`)}
+						placeholder={I18n.t(`${ key }`)}
 						value={customFields[key]}
 						onChangeText={(value) => {
 							const newValue = {};
@@ -235,7 +235,7 @@ class RegisterView extends React.Component {
 					<LoginServices />
 					<Text style={[styles.title, sharedStyles.textBold, { color: themes[theme].titleText }]}>{I18n.t('Sign_Up')}</Text>
 					<TextInput
-						label='Name'
+						label={I18n.t('Name')}
 						containerStyle={styles.inputContainer}
 						placeholder={I18n.t('Name')}
 						returnKeyType='next'
@@ -245,7 +245,7 @@ class RegisterView extends React.Component {
 						theme={theme}
 					/>
 					<TextInput
-						label='Username'
+						label={I18n.t('Username')}
 						containerStyle={styles.inputContainer}
 						inputRef={(e) => { this.usernameInput = e; }}
 						placeholder={I18n.t('Username')}
@@ -256,7 +256,7 @@ class RegisterView extends React.Component {
 						theme={theme}
 					/>
 					<TextInput
-						label='Email'
+						label={I18n.t('Email')}
 						containerStyle={styles.inputContainer}
 						inputRef={(e) => { this.emailInput = e; }}
 						placeholder={I18n.t('Email')}
@@ -268,7 +268,7 @@ class RegisterView extends React.Component {
 						theme={theme}
 					/>
 					<TextInput
-						label='Password'
+						label={I18n.t('Password')}
 						containerStyle={styles.inputContainer}
 						inputRef={(e) => { this.passwordInput = e; }}
 						placeholder={I18n.t('Password')}
@@ -299,12 +299,12 @@ class RegisterView extends React.Component {
 							<Text
 								style={[styles.bottomContainerTextBold, { color: themes[theme].actionTintColor }]}
 								onPress={() => this.openContract('terms-of-service')}
-							>{I18n.t('Terms_of_Service')}
+							>{I18n.t('Terms_of_Service_Sign_Up')}
 							</Text> {I18n.t('and')}
 							<Text
 								style={[styles.bottomContainerTextBold, { color: themes[theme].actionTintColor }]}
 								onPress={() => this.openContract('privacy-policy')}
-							> {I18n.t('Privacy_Policy')}
+							> {I18n.t('Privacy_Policy_Sign_Up')}
 							</Text>
 						</Text>
 					</View>

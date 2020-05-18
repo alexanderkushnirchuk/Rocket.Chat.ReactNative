@@ -285,7 +285,8 @@ class ProfileView extends React.Component {
 			cropperCancelText: I18n.t('Cancel'),
 			includeBase64: true
 		};
-		try {
+        
+		try { 
 			const response = await ImagePicker.openPicker(options);
 			this.setAvatar({ url: response.path, data: `data:image/jpeg;base64,${ response.data }`, service: 'upload' });
 		} catch (error) {
@@ -394,20 +395,20 @@ class ProfileView extends React.Component {
 					<RCTextInput
 						inputRef={(e) => { this[key] = e; }}
 						key={key}
-						label={key}
-						placeholder={key}
+						label={I18n.t(`${ key }`)}
+						placeholder={I18n.t(`${ key }`)}
 						value={customFields[key]}
 						onChangeText={(value) => {
 							const newValue = {};
 							newValue[key] = value;
 							this.setState({ customFields: { ...customFields, ...newValue } });
 						}}
-						onSubmitEditing={() => {
-							if (array.length - 1 > index) {
-								return this[array[index + 1]].focus();
-							}
-							this.avatarUrl.focus();
-						}}
+						//onSubmitEditing={() => {
+						//	if (array.length - 1 > index) {
+						//		return this[array[index + 1]].focus();
+						//	}
+						//	this.avatarUrl.focus();
+						//}}
 						theme={theme}
 					/>
 				);
@@ -519,20 +520,6 @@ class ProfileView extends React.Component {
 							theme={theme}
 						/>
 						{this.renderCustomFields()}
-						<RCTextInput
-							editable={Accounts_AllowUserAvatarChange}
-							inputStyle={[
-								!Accounts_AllowUserAvatarChange && styles.disabled
-							]}
-							inputRef={(e) => { this.avatarUrl = e; }}
-							label={I18n.t('Avatar_Url')}
-							placeholder={I18n.t('Avatar_Url')}
-							value={avatarUrl}
-							onChangeText={value => this.setState({ avatarUrl: value })}
-							onSubmitEditing={this.submit}
-							testID='profile-view-avatar-url'
-							theme={theme}
-						/>
 						{this.renderAvatarButtons()}
 						<Button
 							title={I18n.t('Save_Changes')}
