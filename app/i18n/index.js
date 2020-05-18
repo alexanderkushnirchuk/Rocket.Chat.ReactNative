@@ -4,6 +4,7 @@ import * as RNLocalize from 'react-native-localize';
 
 import en from './locales/en';
 import ru from './locales/ru';
+import ua from './locales/ua';
 import fr from './locales/fr';
 import de from './locales/de';
 import nl from './locales/nl';
@@ -17,7 +18,8 @@ import ja from './locales/ja';
 i18n.translations = {
 	en,
 	ru,
-	'pt-BR': ptBR,
+    ua
+	/*'pt-BR': ptBR,
 	'zh-CN': zhCN,
 	fr,
 	de,
@@ -25,7 +27,7 @@ i18n.translations = {
 	'es-ES': esES,
 	nl,
 	it,
-	ja
+	ja*/
 };
 i18n.fallbacks = true;
 
